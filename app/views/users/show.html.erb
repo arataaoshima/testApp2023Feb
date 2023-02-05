@@ -10,9 +10,12 @@
   <%= @user.email %>
 </p>
 
+
 <p>
   <strong>User Image:</strong>
-  <%= image_tag @user.user_image.variant(resize_to_limit: [100, 100]) %>
+   <% if @user.user_image %>
+  <%= image_tag @user.user_image if @user.user_image.attached? %>
+   <% end %>
 </p>
 
 
